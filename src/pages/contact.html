@@ -1,0 +1,96 @@
+<script src="../assets/js/app.js"></script>
+
+<div id = "content">
+    <div class = "row">
+        <div class = "small-12 columns">
+            <form id="contactForm" data-abide novalidate>
+                <div id="formSuccess" class = "success callout" style="display: none;"></div>
+                <div data-abide-error class="alert callout" style="display: none;">
+                    <p><i class="fi-alert"></i> There are some errors in your form.</p>
+                </div>
+                <div class="row">
+
+                    <div class="small-12 columns">
+                        <label>First Name
+                            <input type="text" placeholder="John Doe" id="firstName" aria-describedby="exampleHelpText" required pattern="text">
+                            <span class="form-error">
+                              A first name is required
+                            </span>
+                        </label>
+                        <p class="help-text" id="exampleHelpText">Enter your first name</p>
+                    </div>
+
+                    <div class="small-12 columns">
+                        <label>Last Name
+                            <input type="text" placeholder="John Doe" id="lastName" aria-describedby="exampleHelpText" required pattern="text">
+                            <span class="form-error">
+                              A last name is required
+                            </span>
+                        </label>
+                        <p class="help-text" id="exampleHelpText">Enter a last name</p>
+                    </div>
+
+                    <div class="small-12 columns">
+                        <label>Email
+                            <input type="text" placeholder="example@somewhere.com" id="email" aria-describedby="exampleHelpTex" required pattern="email">
+                            <span class="form-error">
+                              An Email is required
+                            </span>
+                        </label>
+                        <p class="help-text" id="exampleHelpTex">Enter an Email Address</p>
+                    </div>
+
+                    <div class="small-12 columns">
+                        <label>Organization
+                            <input type="text" id="organization" placeholder="Examples LLC." aria-describedby="exampleHelpText" data-abide-ignore >
+                        </label>
+                        <p class="help-text" id="exampleHelpText">he Organization you're associated with</p>
+                    </div>
+
+                    <div class="small-12 columns">
+                        <label>Message
+                            <textarea id="message" placeholder="Some Message..." aria-describedby="exampleHelpText2" data-abide-ignore rows="7"></textarea>
+                            <span class="form-error">
+                                Please enter a message
+                            </span>
+                        </label>
+                        <p class="help-text" id="exampleHelpText2">Enter a message to be sent</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <fieldset class="large-12 columns">
+                        <button class="button" type="submit" value="Submit">Submit</button>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on("submit", function(env)
+    {
+        env.preventDefault();
+        var firstName = $("input#firstName").val();
+        var lastName = $("input#lastName").val();
+        var email = $("input#email").val();
+        var organization = $("input#organization").val() ? $("input#organization").val() : "Unspecified";
+        var message = $("textarea#message").val() ? $("textarea#message").val() : "Unspecified";
+        var name = firstName + " " + lastName;
+        var data = 'name=' + name + '&email=' + email + '&organization=' + organization + '&message=' + message;
+
+        $("#formSuccess").html("<p>Thanks " + firstName + "!</p><p>I will contact you soon</p>")
+                .fadeIn(1500)
+                .show()
+        ;
+        $.ajax({
+           type: "POST",
+            url: "../assets/php/mail.php",
+            data: data,
+            success: function() {
+                console.log("Sent");
+            }
+        });
+    });
+</script>
+

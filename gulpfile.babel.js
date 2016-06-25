@@ -26,7 +26,7 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
+ gulp.series(clean, gulp.parallel(pages, sass, javascript, images, php, copy), styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -106,6 +106,10 @@ function javascript() {
     .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
+function php(){
+  return gulp.src('src/assets/php/**')
+      .pipe(gulp.dest(PATHS.dist + '/assets/php'));
+}
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
@@ -139,4 +143,5 @@ function watch() {
   gulp.watch('src/assets/js/**/*.js').on('change', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
   gulp.watch('src/styleguide/**').on('change', gulp.series(styleGuide, browser.reload));
+  gulp.watch('src/assets/php/**').on('change', gulp.series(php, browser.reload));
 }
