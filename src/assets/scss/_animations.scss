@@ -1,0 +1,8 @@
+$slide-directions: up down left right;
+@each $slide-direction in $slide-directions{
+  .slide-in.#{$slide-direction} {
+    @include mui-animation(fade, slide($direction: #{$slide-direction}));
+    animation-duration: 1s;
+  }
+}
+
