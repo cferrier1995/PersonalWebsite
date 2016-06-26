@@ -1,4 +1,14 @@
+<script src="../assets/js/app.js"></script>
+
 <div id = "content">
+    <div class="reveal text-center" id="projectsModal" data-reveal>
+        <h1>You're already here!</h1>
+        <p class="lead">Hopefully you knew that.</p>
+        <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <div class="row slide-in right">
         <div class="small-12 columns">
             <div class = "callout primary">
@@ -16,7 +26,7 @@
                                 </div>
                                 <div class = "row">
                                     <a href="http://coryferrier.com.s3-website-us-east-1.amazonaws.com/floppy/" class="button">Go to Web App</a>
-                                    <a href="https://github.com/cferrier1995/floppybird" class="button">View Source</a>
+                                    <a href="https://github.com/cferrier1995/floppybird" target="_blank" class="button">View Source</a>
                                 </div>
                             </div>
                     </div>
@@ -41,8 +51,8 @@
                                 <p>Uses computer vision algorithms to detect major differences in a webcam stream and determine if there's an intruder.</p>
                             </div>
                             <div class = "row">
-                                <a href="http://coryferrier.com.s3-website-us-east-1.amazonaws.com/security_cam/" class="button">Go to Web App</a>
-                                <a href="https://github.com/cferrier1995/SecurityCam" class="button">View Source</a>
+                                <a href="http://coryferrier.com.s3-website-us-east-1.amazonaws.com/security_cam/" class="button" target="_blank" >Go to Web App</a>
+                                <a href="https://github.com/cferrier1995/SecurityCam" class="button" target="_blank" >View Source</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +78,7 @@
                             </div>
                             <div class = "row">
                                 <a href="http://coryferrier.com.s3-website-us-east-1.amazonaws.com/rep_buddy/FitSource.apk" class="button">Download the APK</a>
-                                <a href="https://github.com/cferrier1995/repBuddy/tree/master/Source" class="button">View Source</a>
+                                <a href="https://github.com/cferrier1995/repBuddy/tree/master/Source" class="button" target="_blank" >View Source</a>
                             </div>
                         </div>
                     </div>
@@ -93,8 +103,35 @@
                                 <p>A small website meant to try custom domain name hosting with Amazon Web Services.</p>
                             </div>
                             <div class = "row">
-                                <a href="http://abrasive.dog" class="button">View Website</a>
-                                <a href="https://github.com/cferrier1995/AbrasiveDog" class="button">View Source</a>
+                                <a href="http://abrasive.dog" class="button" target="_blank" >Visit Website</a>
+                                <a href="https://github.com/cferrier1995/AbrasiveDog" class="button" target="_blank" >View Source</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row slide-in left">
+        <div class="small-12 columns">
+            <div class = "callout primary">
+                <div class="media-object stack-for-small">
+                    <div class="media-object-section">
+                        <div class="thumbnail">
+                            <img src= "assets/img/you-are-here.jpg">
+                        </div>
+                    </div>
+                    <div class="media-object-section middle text-center">
+                        <div class = "small-8 small-centered columns">
+                            <div class = "row">
+                                <h4>This Website</h4>
+                                <p>Built with Foundation 6 for sites and hosted on an AWS EC2 instance.
+                                    Uploaded to present a usable example of a responsive portfolio website.</p>
+                            </div>
+                            <div class = "row">
+                                <button id="viewThis" class="button" data-open="projectsModal">Visit Website</button>
+                                <a href="https://github.com/cferrier1995/PersonalWebsite" class="button" target="_blank" >View Source</a>
                             </div>
                         </div>
                     </div>
@@ -103,3 +140,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    var closeModalButton= $("#modalClose");
+
+    closeModalButton.click(function (){
+        $("#viewThis").fadeOut(3000);
+    });
+</script>

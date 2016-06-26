@@ -24,27 +24,34 @@
           <p>I hope you find something that interests you and feel free to contact me with any questions or comments you might have.</p>
           <hr>
           <div class = "no-svg">
-            <a class="webicon linkedin large" href="http://linkedin.com/in/coryferrier">Linkedin</a>
-            <a class="webicon github large" href="http://github.com/cferrier1995">Github</a>
-            <a class="webicon twitter large" href="http://twitter.com/cferrierSE">Twitter</a>
+            <a class="webicon linkedin large" href="http://linkedin.com/in/coryferrier" target="_blank">Linkedin</a>
+            <a class="webicon github large" href="http://github.com/cferrier1995" target="_blank">Github</a>
+            <a class="webicon twitter large" href="http://twitter.com/cferrierSE" target="_blank">Twitter</a>
             <a class="webicon mail large" href="mailto:ferriercory@gmail.com">Mail</a>
           </div>
         </div>
       </div>
       <div class="off-canvas-content" data-off-canvas-content>
-        <div class="title-bar ">
+        <div class="title-bar">
+          <div class="title-bar-right">
+            <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+              <button class="menu-icon dark" type="button" data-toggle></button>
+            </span>
+          </div>
           <div class="title-bar-left">
             <button class="menu-icon hide-for-large" type="button" data-open="my-info"></button>
-            <span class="title-bar-title">Cory Ferrier</span>
-            <span class="menu-text" style = "margin-left: 2rem"><a class = "page-switch" href="index.html">Projects</a></span>
-            <span class="menu-text" style = "margin-left: .05rem"><a class = "page-switch" href="resume.html">Resume</a></span>
-            <span class="menu-text" style = "margin-left: .05rem"><a class = "page-switch" href="contact.html">Contact</a></span>
-            <span class="menu-text" style = "margin-left: .05rem"><a class = "page-switch" href="#">About</a></span>
+              <span class="title-bar-title">Cory Ferrier</span>
+              <span id="responsive-menu">
+                <span class="menu-text"><a class = "page-switch" href="index.html">Projects</a></span>
+                <span class="menu-text"><a class = "page-switch" href="resume.html">Experience</a></span>
+                <span class="menu-text"><a class = "page-switch" href="contact.html">Contact</a></span>
+              </span>
           </div>
         </div>
         <div id = "body">
           {{> body}}
         </div>
+      </div>
 
       </div>
     </div>

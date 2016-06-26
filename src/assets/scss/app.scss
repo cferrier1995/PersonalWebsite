@@ -71,3 +71,13 @@ a {
 .off-canvas-wrapper-inner, .off-canvas{
   min-height: 100vh;
 }
+
+.title-bar .title-bar-left{
+  float: none;
+}
+
+#responsive-menu{
+  @include breakpoint(medium down){
+    text-align: center;
+  }
+}

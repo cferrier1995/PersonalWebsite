@@ -20,8 +20,8 @@ $headers = "Web Form";
 
 $mail = mail($to, $from, $message, $headers);
 if($mail){
-  echo "Thank you for using our mail form";
+  http_response_code(200);
 }else{
-  echo "Mail sending failed.";
+  http_response_code(500);
 }
 ?>

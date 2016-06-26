@@ -4,15 +4,15 @@
     <div class = "row">
         <div class = "small-12 columns">
             <form id="contactForm" data-abide novalidate>
-                <div id="formSuccess" class = "success callout" style="display: none;"></div>
+                <div id="formResult" class = "callout" style="display: none;"></div>
                 <div data-abide-error class="alert callout" style="display: none;">
                     <p><i class="fi-alert"></i> There are some errors in your form.</p>
                 </div>
                 <div class="row">
 
-                    <div class="small-12 columns">
+                    <div class="small-12 columns slide-in left">
                         <label>First Name
-                            <input type="text" placeholder="John Doe" id="firstName" aria-describedby="exampleHelpText" required pattern="text">
+                            <input type="text" placeholder="John" id="firstName" aria-describedby="exampleHelpText" required pattern="text">
                             <span class="form-error">
                               A first name is required
                             </span>
@@ -20,9 +20,9 @@
                         <p class="help-text" id="exampleHelpText">Enter your first name</p>
                     </div>
 
-                    <div class="small-12 columns">
+                    <div class="small-12 columns slide-in right">
                         <label>Last Name
-                            <input type="text" placeholder="John Doe" id="lastName" aria-describedby="exampleHelpText" required pattern="text">
+                            <input type="text" placeholder="Doe" id="lastName" aria-describedby="exampleHelpText" required pattern="text">
                             <span class="form-error">
                               A last name is required
                             </span>
@@ -30,7 +30,7 @@
                         <p class="help-text" id="exampleHelpText">Enter a last name</p>
                     </div>
 
-                    <div class="small-12 columns">
+                    <div class="small-12 columns slide-in left">
                         <label>Email
                             <input type="text" placeholder="example@somewhere.com" id="email" aria-describedby="exampleHelpTex" required pattern="email">
                             <span class="form-error">
@@ -40,14 +40,14 @@
                         <p class="help-text" id="exampleHelpTex">Enter an Email Address</p>
                     </div>
 
-                    <div class="small-12 columns">
+                    <div class="small-12 columns slide-in right">
                         <label>Organization
                             <input type="text" id="organization" placeholder="Examples LLC." aria-describedby="exampleHelpText" data-abide-ignore >
                         </label>
                         <p class="help-text" id="exampleHelpText">he Organization you're associated with</p>
                     </div>
 
-                    <div class="small-12 columns">
+                    <div class="small-12 columns slide-in left">
                         <label>Message
                             <textarea id="message" placeholder="Some Message..." aria-describedby="exampleHelpText2" data-abide-ignore rows="7"></textarea>
                             <span class="form-error">
@@ -57,7 +57,7 @@
                         <p class="help-text" id="exampleHelpText2">Enter a message to be sent</p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row slide-in right">
                     <fieldset class="large-12 columns">
                         <button class="button" type="submit" value="Submit">Submit</button>
                     </fieldset>
@@ -79,16 +79,22 @@
         var name = firstName + " " + lastName;
         var data = 'name=' + name + '&email=' + email + '&organization=' + organization + '&message=' + message;
 
-        $("#formSuccess").html("<p>Thanks " + firstName + "!</p><p>I will contact you soon</p>")
-                .fadeIn(1500)
-                .show()
-        ;
+
         $.ajax({
            type: "POST",
             url: "../assets/php/mail.php",
             data: data,
             success: function() {
-                console.log("Sent");
+                $("#formResult").html("<p>Thanks " + firstName + "!</p><p>I will contact you soon</p>")
+                        .addClass("success")
+                        .fadeIn(1500)
+                        .show();
+            },
+            error: function() {
+                $("#formResult").html("<p>Error sending email, please send message manually to ferriercory@gmail.com")
+                        .addClass("alert")
+                        .fadeIn(1500)
+                        .show();
             }
         });
     });
