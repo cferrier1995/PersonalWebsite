@@ -1,14 +1,4 @@
-<script src="../assets/js/app.js"></script>
-
 <div id = "content">
-    <div class="reveal text-center" id="projectsModal" data-reveal>
-        <h1>You're already here!</h1>
-        <p class="lead">Hopefully you knew that.</p>
-        <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
     <div class="row slide-in right">
         <div class="small-12 columns">
             <div class = "callout primary">
@@ -93,32 +83,6 @@
                 <div class="media-object stack-for-small">
                     <div class="media-object-section">
                         <div class="thumbnail">
-                            <img src= "assets/img/abrasive.jpg">
-                        </div>
-                    </div>
-                    <div class="media-object-section middle text-center">
-                        <div class = "small-8 small-centered columns">
-                            <div class = "row">
-                                <h4>Abrasive Dog</h4>
-                                <p>A small website meant to try custom domain name hosting with Amazon Web Services.</p>
-                            </div>
-                            <div class = "row">
-                                <a href="http://abrasive.dog" class="button" target="_blank" >Visit Website</a>
-                                <a href="https://github.com/cferrier1995/AbrasiveDog" class="button" target="_blank" >View Source</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row slide-in left">
-        <div class="small-12 columns">
-            <div class = "callout primary">
-                <div class="media-object stack-for-small">
-                    <div class="media-object-section">
-                        <div class="thumbnail">
                             <img src= "assets/img/you-are-here.jpg">
                         </div>
                     </div>
@@ -141,10 +105,10 @@
     </div>
 </div>
 
-<script>
-    var closeModalButton= $("#modalClose");
-
-    closeModalButton.click(function (){
-        $("#viewThis").fadeOut(3000);
-    });
-</script>
+<div id="projectsModal" class="reveal text-center" data-reveal>
+    <h1>You're already here!</h1>
+    <p class="lead">Hopefully you knew that.</p>
+    <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

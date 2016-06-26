@@ -77,7 +77,7 @@ a {
 }
 
 #responsive-menu{
-  @include breakpoint(medium down){
+  @include breakpoint(small only){
     text-align: center;
   }
 }
